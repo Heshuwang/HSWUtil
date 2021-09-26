@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "HSWUtil"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.6"
   spec.summary      = "A short description of HSWUtil."
 
   # This description is used to generate tags and improve search results.
@@ -24,10 +24,10 @@ Pod::Spec.new do |spec|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = <<-DESC
-                   DESC
+  # spec.description  = <<-DESC
+                   # DESC
 
-  spec.homepage     = "http://EXAMPLE/HSWUtil"
+  spec.homepage     = "http://github.com/Heshuwang/HSWUtil"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -38,7 +38,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
+  spec.license      = "MIT"
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -79,7 +79,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "http://EXAMPLE/HSWUtil.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "http://github.com/Heshuwang/HSWUtil.git", :tag => spec.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,9 +89,15 @@ Pod::Spec.new do |spec|
   #  For header files it will include any header in the folder.
   #  Not including the public_header_files will make all headers public.
   #
+   spec.ios.deployment_target = '10.0'
+   s.source_files = 'HSWUtil/HSWUtil.h'
 
-  spec.source_files  = "Classes", "Classes/**/*.{h,m}"
-  spec.exclude_files = "Classes/Exclude"
+  s.subspec 'Common' do |ss|
+    ss.source_files = 'HSWUtil/Common/VariableDefineFile.swift'
+  end
+  s.subspec 'Util' do |ss|
+    ss.source_files = 'HSWUtil/Util/{SWUtil,SWExtension,NSLayoutConstraint+extension}.swift'
+  end
 
   # spec.public_header_files = "Classes/**/*.h"
 
@@ -129,7 +135,7 @@ Pod::Spec.new do |spec|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # spec.requires_arc = true
+  spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
