@@ -1,0 +1,11 @@
+framework module HSWUtil {
+  umbrella header "HSWUtil.h"
+
+  export *
+  module * { export * }
+}
+
+module HSWUtil.Swift {
+    header "HSWUtil-Swift.h"
+    requires objc
+}
