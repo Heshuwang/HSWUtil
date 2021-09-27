@@ -53,7 +53,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.author             = { 'Heshuwang' => 'heshuwang123@163.com' }
-  # Or just: spec.author    = "Heshuwang"
+   # spec.author    = 'Heshuwang'
   # spec.authors            = { "Heshuwang" => "heshuwang123@163.com" }
   # spec.social_media_url   = "https://twitter.com/Heshuwang"
 
@@ -81,7 +81,6 @@ Pod::Spec.new do |spec|
 
   spec.source       = { :git => 'https://github.com/Heshuwang/HSWUtil.git', :tag => spec.version }
 
-
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  CocoaPods is smart about how it includes source code. For source files
@@ -90,7 +89,6 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
    spec.ios.deployment_target = '10.0'
-   spec.osx.deployment_target = '10.7'
    spec.source_files = 'HSWUtil/HSWUtil.h'
 
   spec.subspec 'Common' do |ss|
@@ -135,8 +133,8 @@ Pod::Spec.new do |spec|
   #  If your library depends on compiler flags you can set them in the xcconfig hash
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
-
-  spec.requires_arc = true
+   # spec.vendored_frameworks = 'HSWUtil.framework'
+   spec.requires_arc = true
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
